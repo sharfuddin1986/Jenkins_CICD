@@ -42,11 +42,33 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
   /etc/apt/sources.list.d/jenkins.list > /dev/null
  
-  2.2 sudo apt-get install Jenkins
+   2.2 sudo apt-get install Jenkins
      
-  2.3 sudo systemctl enable jenkins
+   2.3 sudo systemctl enable jenkins
   
-  2.4 sudo systemctl start jenkins
+   2.4 sudo systemctl start jenkins
+
    
+ 
+4. Install Jenkins plugins
+
+   4.1 docker pipeline
+
+   4.2 sonarqube scanner
+
+   4.3 pipeline stage view
+
+   4.4 open blue ocean
+
+5. Create a new Jenkins pipeline:
+
+   5.1 Name-Pipeline ultimate-demo  type pipeline
    
+   5.2 Advance project option-Pipeline scrpit from scm
+
+   5.3 Scm-git  URL-https://github.com/sharfuddin1986/Jenkins_CICD  Branch-main 
+
+   5.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
+
+
    
