@@ -7,14 +7,16 @@ Here are the step-by-step details to set up an end-to-end Jenkins pipeline for a
 
 Prerequisites:
 
-Java application code hosted on a Git repository
+- Java application code hosted on a Git repository
 
-Jenkins server
+- Jenkins server
 
-Kubernetes cluster
+- SonarQube Server
 
-Helm package manager
+- Kubernetes cluster
 
-Argo CD
+- Helm package manager
+
+- Argo CD
 
 
