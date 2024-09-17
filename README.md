@@ -134,7 +134,10 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
 
 6.  Add credential in jenkins for sonarqube,Dockerhub and Github access token
-   
+
+
+   ![4.jpg](https://github.com/user-attachments/assets/ec567f74-d976-41a8-91e6-b7201e397bd8)
+
 
     6.1 Manage jenkins-credential-system-add credential-kind  secret  and secret  paste the sonarqube access token save
 
@@ -144,6 +147,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
     6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
 
+8. 
 
 
 
