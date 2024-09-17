@@ -158,15 +158,17 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
 ![6.jpg](https://github.com/user-attachments/assets/86867ed5-1a1b-47ba-9cbb-9a1d13eaf219)
 
-## SonarQube Analysis is passed 
+## SonarQube Analaysis is passed 
 
 ![7.jpg](https://github.com/user-attachments/assets/70eae4ae-e89a-4113-9320-52b2db8f2f4d)
 
 
-## Push image to Dockerhub account 
+## Push image to Dockerhub account with new tag 
 
 
 ![8.jpg](https://github.com/user-attachments/assets/741c7f50-24a7-41f8-823d-3521856eaa9d)
+
+
 
 
 
