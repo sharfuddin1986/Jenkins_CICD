@@ -142,7 +142,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
         user name-dockerhub account user name  password- dockerhub account password save
 
-   6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
+    6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
 
 
 
