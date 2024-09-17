@@ -34,7 +34,7 @@ Prerequisites:
    
    1.4 java –version
 
-3. Install Jenkins
+2. Install Jenkins
    
    2.1 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
@@ -48,20 +48,45 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
   
    2.4 sudo systemctl start jenkins
 
+   2.5 sudo apt-get install docker.io  -y
+
+   2.6 sudo systemctl enable docker
+
+   2.7 sudo systemctl start docker
+
+   2.8 sudo su -
+
+   Grant Jenkins user and Ubuntu user permission to docker deamon.
+
+   2.9 usermod -aG docker jenkins
+
+   3.0 usermod -aG docker ubuntu
    
  
 4. Install Jenkins plugins
 
-   4.1 docker pipeline
+   3.1 docker pipeline
 
-   4.2 sonarqube scanner
+   3.2 sonarqube scanner
 
-   4.3 pipeline stage view
+   3.3 pipeline stage view
 
-   4.4 open blue ocean
+   3.4 open blue ocean
 
 
-##  Define the pipeline stages:
+
+
+5. Create a new Jenkins pipeline:
+
+   4.1 Name-Pipeline ultimate-demo  type pipeline
+   
+   4.2 Advance project option-Pipeline scrpit from scm
+
+   4.3 Scm-git  URL-https://github.com/sharfuddin1986/Jenkins_CICD  Branch-main 
+
+   4.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
+
+ ##  Define the pipeline stages:
     Stage 1: Checkout the source code from Git.
     Stage 2: Build the Java application using Maven.
     Stage 3: Run unit tests using JUnit and Mockito.
@@ -80,47 +105,46 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
     Stage 6: Use the Kubernetes Continuous Deploy plugin to deploy the application to a test environment using Helm.
     Stage 7: Use a testing framework like Selenium to run user acceptance tests on the deployed application.
     Stage 8: Use Argo CD to promote the application to a production environment.
+     
+
+
+5. Configure SonarQube on same ec2 instance:
+
+   5.1 sudo su-
+
+   5.2 adduser sonarqube
+
+   5.3 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+
+   5.4 sudo apt-get install unzip
    
+   5.5 unzip *
 
-6. Create a new Jenkins pipeline:
+   5.6 chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
 
-   5.1 Name-Pipeline ultimate-demo  type pipeline
-   
-   5.2 Advance project option-Pipeline scrpit from scm
+   5.7 chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
 
-   5.3 Scm-git  URL-https://github.com/sharfuddin1986/Jenkins_CICD  Branch-main 
+   5.8 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
 
-   5.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
-
-
-7. Configure SonarQube on same ec2 instance:
-
-   6.1 sudo su-
-
-   6.2 adduser sonarqube
-
-   6.3 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
-
-   6.4 sudo apt-get install unzip
-   
-   6.5 unzip *
-
-   6.6 chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
-
-   6.7 chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
-
-   6.8 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
-
-   6.9 ./sonar.sh start
+   5.9 ./sonar.sh start
 
        !! Now you can access the SonarQube Server on http://<ip-address>:9000
 
-   7.0 Go to my account create access token !! Name-jenkins  create token and copy token
+   6.0 Go to my account create access token !! Name-jenkins  create token and copy token
 
 
-7 
+6 Add credential in jenkins for sonarqube,Dockerhub and Github access token
+
+ 6.1 Manage jenkins-credential-system-add credential-kind  secret  and secret  paste the sonarqube access token save
+
+ 6.2 Add credential-kind user name & password- id- docker-cred(all ready define in pipeline) 
+     user name-dockerhub account user name  password- dockerhub account password save
+
+     
+6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
 
 
 
-Grant Jenkins user and Ubuntu user permission to docker deamon.
+
+
 
