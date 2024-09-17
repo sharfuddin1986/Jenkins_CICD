@@ -171,5 +171,41 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
 
 
+7.  Install Minikube and Argocd
 
+   7.1 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 
+   7.2 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+   7.3 sudo chmod 777 /var/run/docker.sock 
+
+   7.4 minikube start --memory=4098 --driver=docker
+
+   7.5 minikube start
+
+   7.6 sudo snap install kubectl --classic
+
+   7.7 kubectl get pods
+
+   7.8 kubectl create namespace argocd
+
+   7.9 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+   8.0 watch kubectl get pods -n argocd
+
+   8.1 kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8081:443
+
+   After Port forwading need to access through Public ip of ec2 instance with port
+   
+   https://54.87.56.123:8081/
+  
+   Retrieve the initial admin password for ArgoCD:
+   
+   kubectl get secret -n argocd argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
+   
+   ![9.jpg](https://github.com/user-attachments/assets/764eb011-5bfd-4465-8e13-7a8abab117f2)
+   
+   
+   
+   
