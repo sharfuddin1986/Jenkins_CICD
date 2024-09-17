@@ -171,6 +171,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
 
 
+
 7.  Install Minikube and Argocd
 
    7.1 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -185,7 +186,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
    7.6 sudo snap install kubectl --classic
 
-   7.7 kubectl get pods
+   7.7 kubectl get pods   
 
    7.8 kubectl create namespace argocd
 
@@ -207,6 +208,24 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    ![9.jpg](https://github.com/user-attachments/assets/764eb011-5bfd-4465-8e13-7a8abab117f2)
 
 
+   After login create app name-test sync-automaically Url-git repo (https://github.com/sharfuddin1986/Jenkins_CICD)
+
+   Path deployment file-java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests namespace- default   create 
+
+   
+
+   
+
+![11.jpg](https://github.com/user-attachments/assets/0ee93a77-1966-4719-a2a1-182831585b4b)
+
+
+ 
+ Pods are Healthy and Appllication is deploy to kubernetes cluster.
+ 
+
+
+
+![10.jpg](https://github.com/user-attachments/assets/8d2af0bd-133a-432c-a325-acba05db44b7)
    
    
    
