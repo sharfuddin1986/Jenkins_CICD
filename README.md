@@ -150,7 +150,13 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
     6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
 
-8. 
+## Build the pipeline
+
+ ![5.jpg](https://github.com/user-attachments/assets/a3bde059-7f5a-4778-b541-4eb6b0fd427a)
+
+## jenkins CI pipe is sucessfully 
+
+![6.jpg](https://github.com/user-attachments/assets/86867ed5-1a1b-47ba-9cbb-9a1d13eaf219)
 
 
 
