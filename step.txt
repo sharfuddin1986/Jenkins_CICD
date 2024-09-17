@@ -1,0 +1,216 @@
+
+
+Run the below commands to install Java and Jenkins
+Install Java
+sudo apt update
+sudo apt install openjdk-17-jre
+java –version  verify
+install jenkins’  https://www.jenkins.io/doc/book/installing/linux/#debianubuntu
+
+
+git clone https://github.com/sharfuddin1986/Jenkins_CICD.git
+
+cd java-maven-sonar-argocd-helm-k8s/
+
+
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install Jenkins
+sudo systemctl status jenkins
+ps -ef | grep Jenkins    check Jenkins
+
+
+aces by url http://23.22.206.174:8080/
+login Jenkins
+
+create pipeline
+name- Pipeline ultimate-demo     create
+advance project option-pipeline script from scm 
+scm-git
+url-
+https://github.com/sharfuddin1986/Jenkins-Zero-To-Hero
+branch-main
+no credential
+script path-
+java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
+apply-save 
+
+add plugin in Jenkins
+docker pipeline plugin
+sonarqube scanner plugin
+pipeline stage view
+
+
+Configure a Sonar Server locally
+Sudo su – 
+adduser sonarqube     admin admin
+
+apt install unzip
+sudo su – sonarqube
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+
+
+unzip *
+chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
+
+chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+
+cd sonarqube-9.4.0.54424/bin/linux-x86-64/
+
+
+./sonar.sh start     (start sonar server)
+
+Sonar server work on 9000 port
+
+
+Hurray !! Now you can access the SonarQube Server on http://<ip-address>:9000
+Login admin admin
+click my account security  token name jenkins generate the token  copy key 
+manage jenkins manage system  credential-global credential-add credentail-
+kind-secret text -    secret -paste key  id-sonarqube save 
+
+Need to install docker 
+sudo apt-get install docker.io 
+sudo systemctl enable docker
+sudo systemctl start docker 
+
+sudo su –
+Grant Jenkins user and Ubuntu user permission to docker deamon.
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+
+
+restart the Jenkins
+
+40 minutes video no issue 
+
+
+
+
+
+
+Install minikube 
+
+
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+   sudo install minikube-linux-amd64 /usr/local/bin/minikube
+   sudo chmod 777 /var/run/docker.sock  
+   cd /usr/local/bin/
+   minikube version
+   minikube start --driver=docker
+   Start Minikube and Check Status:
+   minikube start
+   minikube status
+
+install kubectl 
+ 
+     sudo snap install kubectl --classic
+     kubectl version
+
+44 minute tell install operator but I not install operator 
+
+Install ArgoCD
+
+
+   kubectl create namespace argocd
+   kubectl apply -n argocd –f https://raw.githubusercontent.com/argoproj/argo-       cd/stable/manifests/install.yaml
+   kubectl get pod -n argocd
+   kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0  8081:443
+
+
+Jenkin-manage credential-click system-globsl credendital-adduser first-kind-username and password- id-docker-cred
+Username-dockerhub ussername 
+Id- docker-cred  as per Jenkins file we mention there credential name
+User name- dockerhub username
+Password-dokcerhub password  
+Create 
+First create github access token and copy 
+Token name-jenkins
+
+Add one  more credential for github 
+Add one more for github
+Add user
+-kind-secret text-   
+Scret-github access token pasete here   
+Id-github    create 
+
+
+Step –go to git repo-java maven sonar argo-spring boot app-src –jenkins file- search sonar- change the aip put ec2
+ instance ip
+chnge deployment.yml file also 
+
+build the job now 
+
+kubectl get pod -n argocd
+
+
+kubectl get svc     I get server name 
+
+
+kubectl get svc
+NAME         TYPE       CLUSTER-IP   EXTERNAL-IP   PORT(S)         AGE
+kubernetes   NodePort   10.96.0.1    <none>        443:30200/TCP   107m
+
+minikube service kubenetes   (service name )
+minikube service list
+
+
+
+Build now
+kubectl get pod -n argocd 
+Kubectl get svc     show all server detail   copy argocd ip 
+I want tto change port
+Kubectl edit svc ardocd        need to change cluster ort no node port
+Type-NodePort   save
+Kubectl get svc   after I notice argo cd work on node port
+Minikube service argocd-server   use for creating url 
+Minikube service list   then in can see arocd-server url will show u   copy this link open in browser to access argo cd
+
+Kubectl get pods
+aRgocd pod running
+I want password for aargocd
+
+
+after open argo cd
+application name test
+sync automatically
+url-git repo url    https://github.com/sharfuddin1986/Jenkins_CICD
+
+path deployment file    java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests
+namespace-defult cluster
+create 
+
+kubectl get pods
+kubectl get deploy
+
+ 
+
+
+ 
+
+
+
+
+
+install minikube 
+https://operatorhub.io/
+need argocd installatin with operator to help kubernetes
+select  argocd and install run three command for install argo cd oprator
+
+curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.28.0/install.sh | bash -s v0.28.0
+
+kubectl create -f https://operatorhub.io/install/argocd-operator.yaml
+kubectl get csv -n operators
+kubectl port-forward svc/argocd-server -n argocd --address 0.0.0.0 8081:443
+
+
+
+
+
+
+
