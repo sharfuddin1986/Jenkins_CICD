@@ -60,7 +60,29 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
    4.4 open blue ocean
 
-5. Create a new Jenkins pipeline:
+
+##  Define the pipeline stages:
+    Stage 1: Checkout the source code from Git.
+    Stage 2: Build the Java application using Maven.
+    Stage 3: Run unit tests using JUnit and Mockito.
+    Stage 4: Run SonarQube analysis to check the code quality.
+    Stage 5: Package the application into a JAR file.
+    Stage 6: Deploy the application to a test environment using Helm.
+    Stage 7: Run user acceptance tests on the deployed application.
+    Stage 8: Promote the application to a production environment using Argo CD.
+
+## Configure Jenkins pipeline stages:
+    Stage 1: Use the Git plugin to check out the source code from the Git repository.
+    Stage 2: Use the Maven Integration plugin to build the Java application.
+    Stage 3: Use the JUnit and Mockito plugins to run unit tests.
+    Stage 4: Use the SonarQube plugin to analyze the code quality of the Java application.
+    Stage 5: Use the Maven Integration plugin to package the application into a JAR file.
+    Stage 6: Use the Kubernetes Continuous Deploy plugin to deploy the application to a test environment using Helm.
+    Stage 7: Use a testing framework like Selenium to run user acceptance tests on the deployed application.
+    Stage 8: Use Argo CD to promote the application to a production environment.
+   
+
+6. Create a new Jenkins pipeline:
 
    5.1 Name-Pipeline ultimate-demo  type pipeline
    
@@ -71,7 +93,7 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    5.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
 
 
-6. Configure SonarQube on same ec2 instance:
+7. Configure SonarQube on same ec2 instance:
 
    6.1 sudo su-
 
@@ -93,6 +115,12 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
        !! Now you can access the SonarQube Server on http://<ip-address>:9000
 
-   7.0 Go to my account create access token !! +  
+   7.0 Go to my account create access token !! Name-jenkins  create token and copy token
 
-   + 
+
+7 
+
+
+
+Grant Jenkins user and Ubuntu user permission to docker deamon.
+
