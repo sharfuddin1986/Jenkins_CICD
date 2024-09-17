@@ -133,15 +133,15 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    6.0 Go to my account create access token !! Name-jenkins  create token and copy token
 
 
-6 Add credential in jenkins for sonarqube,Dockerhub and Github access token
+6. Add credential in jenkins for sonarqube,Dockerhub and Github access token
+   
 
- 6.1 Manage jenkins-credential-system-add credential-kind  secret  and secret  paste the sonarqube access token save
+  6.1 Manage jenkins-credential-system-add credential-kind  secret  and secret  paste the sonarqube access token save
 
- 6.2 Add credential-kind user name & password- id- docker-cred(all ready define in pipeline) 
-     user name-dockerhub account user name  password- dockerhub account password save
+  6.2 Add credential-kind user name & password- id- docker-cred(all ready define in pipeline) 
+      user name-dockerhub account user name  password- dockerhub account password save
 
-     
-6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
+  6.3 Add credential- kind-secret text and secret- paste the git hub access token save 
 
 
 
