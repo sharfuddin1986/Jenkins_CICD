@@ -86,6 +86,9 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
    4.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
 
+   ![3.jpg](https://github.com/user-attachments/assets/41410cc6-cd83-45ba-b0d2-6ebaa5ba753f)
+
+
  ##  Define the pipeline stages:
     Stage 1: Checkout the source code from Git.
     Stage 2: Build the Java application using Maven.
