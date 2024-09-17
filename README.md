@@ -205,6 +205,8 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 
    
    ![9.jpg](https://github.com/user-attachments/assets/764eb011-5bfd-4465-8e13-7a8abab117f2)
+
+
    
    
    
