@@ -163,5 +163,11 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
 ![7.jpg](https://github.com/user-attachments/assets/70eae4ae-e89a-4113-9320-52b2db8f2f4d)
 
 
+## Push image to Dockerhub account 
+
+
+![8.jpg](https://github.com/user-attachments/assets/741c7f50-24a7-41f8-823d-3521856eaa9d)
+
+
 
 
