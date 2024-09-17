@@ -71,4 +71,27 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
    5.4 Script path-java-maven-sonar-argocd-helm-k8s/spring-boot-app/JenkinsFile
 
 
+6. Configure SonarQube on same ec2 instance:
+
+   6.1 sudo su-
+
+   6.2 adduser sonarqube
+
+   6.3 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-9.4.0.54424.zip
+
+   6.4 sudo apt-get install unzip
+   
+   6.5 unzip *
+
+   6.6 chmod -R 755 /home/sonarqube/sonarqube-9.4.0.54424
+
+   6.7 chown -R sonarqube:sonarqube /home/sonarqube/sonarqube-9.4.0.54424
+
+   6.8 cd sonarqube-9.4.0.54424/bin/linux-x86-64/
+
+   6.9 ./sonar.sh start
+
+       !! Now you can access the SonarQube Server on http://<ip-address>:9000
+
+   7.0 Go to my account create access token !! +  
    
