@@ -94,4 +94,5 @@ echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
        !! Now you can access the SonarQube Server on http://<ip-address>:9000
 
    7.0 Go to my account create access token !! +  
-   
+
+   + 
