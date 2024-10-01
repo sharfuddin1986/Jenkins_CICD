@@ -87,10 +87,6 @@ usermod -aG docker ubuntu
 
 restart the Jenkins
 
-40 minutes video no issue 
-
-
-
 
 
 
@@ -112,7 +108,6 @@ install kubectl
      sudo snap install kubectl --classic
      kubectl version
 
-44 minute tell install operator but I not install operator 
 
 Install ArgoCD
 
